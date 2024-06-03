@@ -1,0 +1,7 @@
+<div *ngFor="let item of data | keyvalue">
+    <div *ngFor="let entry of item.value">
+      <div *ngFor="let obj of entry | keyvalue">
+        <p>{{obj.key}}: {{obj.value?.DEWP}}</p>
+      </div>
+    </div>
+  </div>
