@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WeatherdataService } from '../weatherdata.service';
+import { WeatherdataService } from '../services/weatherdata.service';
 
 @Component({
   selector: 'app-get-data',
