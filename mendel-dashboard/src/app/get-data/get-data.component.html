@@ -1,7 +1,40 @@
-<div *ngFor="let item of data | keyvalue">
-    <div *ngFor="let entry of item.value">
-      <div *ngFor="let obj of entry | keyvalue">
-        <p>{{obj.key}}: {{obj.value?.DEWP}}</p>
-      </div>
-    </div>
-  </div>
+<div *ngIf="data && data.length > 0; else noData">
+  <table>
+    <thead>
+      <tr>
+        <th>Station</th>
+        <th>Temperature</th>
+        <th>Dew Point</th>
+        <th>Station Pressure</th>
+        <th>Sea Level Pressure</th>
+        <th>Visibility</th>
+        <th>Wind Speed</th>
+        <th>Precipitation</th>
+        <th>Snow Depth</th>
+        <th>Frost/Hail</th>
+        <th>Cloud Coverage</th>
+        <th>Wind Direction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let station of data">
+        <td>{{ station.STN }}</td>
+        <td>{{ station.DATA[0]?.TEMP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.DEWP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.STP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.SLP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.VISIB || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.WDSP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.PRCP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.SNDP || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.FRSHTT || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.CLDC || 'N/A' }}</td>
+        <td>{{ station.DATA[0]?.WNDDIR || 'N/A' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noData>
+  <p>No data available.</p>
+</ng-template>
