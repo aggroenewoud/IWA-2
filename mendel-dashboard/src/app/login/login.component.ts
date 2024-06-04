@@ -1,17 +1,44 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, HttpClientModule],
+  
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
 
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  username: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router, private renderer: Renderer2, private el: ElementRef) {}
+
+  onLogin() {
+    if (this.authService.login(this.username, this.password)) {
+      alert("Login Success");
+      this.router.navigate(['/home']);
+    } else {
+      this.errorMessage = 'Invalid credentials';
+    }
   }
+
+  ngOnInit() {
+    // Get the form and add a listener for the submit event
+    const form = this.el.nativeElement.querySelector('form');
+    this.renderer.listen(form, 'submit', this.onLoginButtonClick.bind(this));
+  }
+
+  
+
+
 
   onLoginButtonClick(event: Event): void {
     event.preventDefault();
@@ -23,6 +50,10 @@ export class LoginComponent implements OnInit {
     // Get the wrapper and add the 'form-success' class
     const wrapper = this.el.nativeElement.querySelector('.wrapper');
     this.renderer.addClass(wrapper, 'form-success');
-  }
 
+  }
 }
+
+
+
+
