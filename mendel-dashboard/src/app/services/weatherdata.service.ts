@@ -10,8 +10,7 @@ export class WeatherdataService {
 
   constructor(private http:HttpClient) {}
 
-  GetData(): Observable<any> {
-    var url = "http://localhost:8000/api/contracten/4/all?api-key=rv4CW8jdoBwihT8sv2CNxRy0tsOm5eGf"
+  GetData(url:string): Observable<any> {
     return this.http.get<StationData[]>(url);
   }
 
