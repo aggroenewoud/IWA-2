@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mock-browser": "^0.92.14"
+  }
+}
