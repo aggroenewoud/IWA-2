@@ -1,1 +1,16 @@
-<p>home works!</p>
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>News</h1>
+          <p>Here you can find the latest news about Mendel.</p>
+          <div class="card" *ngFor="let newsItem of news">
+            <div class="card-body">
+              <h5 class="card-title">{{newsItem.title}}</h5>
+              <p class="card-text">{{newsItem.content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

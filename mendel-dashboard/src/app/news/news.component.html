@@ -1,0 +1,11 @@
+<section>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <h1>News</h1>
+            <p>Here you can find the latest news about Mendel.</p>
+            <div class="card" *ngFor="let news of newsList">
+            <div class="card-body">
+                <h5 class="card-title">{{news.title}}</h5>
+                <p class="card-text">{{news.content}}</p>
+</section>
