@@ -1,9 +1,13 @@
+<div class="title">
+  <h1>News</h1>
+  <p>Here you can find the latest news about Mendel.</p>
+</div>
+
+
 <section>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>News</h1>
-        <p>Here you can find the latest news about Mendel.</p>
         <div class="card-box">
           <app-news *ngFor="let newsItem of news" [newsInterface]="newsItem"></app-news>
         </div>
@@ -14,6 +18,6 @@
 </section>
 
 
-<div class="speration-line">
-  
-</div>
+<div class="speration-line"></div>
+
+<app-hometimeline>  </app-hometimeline>
