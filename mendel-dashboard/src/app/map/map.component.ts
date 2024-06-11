@@ -6,6 +6,7 @@ import {WeatherdataService} from "../services/weatherdata.service";
 import {ApiUrlBuilderService} from "../services/api-url-builder.service";
 import {StationData} from "../interfaces/weather.interfaces";
 import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
+import { WeatherData } from '../interfaces/weather.interfaces';
 
 @Component({
   selector: 'app-map',
@@ -36,7 +37,7 @@ export class MapComponent implements AfterViewInit {
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 6,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     });
     tiles.addTo(this.map);
 
@@ -46,7 +47,11 @@ export class MapComponent implements AfterViewInit {
       this.data = data;
 
       // Map the data to the format that heatLayer expects
-      const heatData = this.data.map(datum => [datum.LAT, datum.LONG, 50]);
+      const heatData = this.data.map(datum => [
+        datum.LAT, 
+        datum.LONG, 
+        this.getAverage(datum.DATA) * 10
+      ]);
 
       // Create the heatmap layer
       const heatmapLayer = (L as any).heatLayer(heatData, {radius: 100});
@@ -56,6 +61,15 @@ export class MapComponent implements AfterViewInit {
     });
 
 
+  }
+
+  private getAverage(data:WeatherData[]) {
+    var average = 0;
+    data.forEach(measurement => {
+      average += Number(measurement.WDSP); // TODO: Make dynamic
+    });
+    console.log(average / data.length);
+    return average / data.length;
   }
 
   ngAfterViewInit(): void {
