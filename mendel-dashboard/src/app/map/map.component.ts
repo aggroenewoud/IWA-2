@@ -2,6 +2,10 @@ import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.heat';
 import {Observable} from "rxjs";
+import {WeatherdataService} from "../services/weatherdata.service";
+import {ApiUrlBuilderService} from "../services/api-url-builder.service";
+import {StationData} from "../interfaces/weather.interfaces";
+import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
 
 @Component({
   selector: 'app-map',
@@ -15,11 +19,17 @@ import {Observable} from "rxjs";
 
 export class MapComponent implements AfterViewInit {
   private map: L.Map | undefined
+  title = 'get-data';
+  url_builder = new ApiUrlBuilderService();
+  data: StationData[] = [];
+
+  constructor(private weatherdata:WeatherdataService) {
+  }
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39.8282, -98.5795 ],
-      zoom: 3
+      center: [49.45, 15.30],
+      zoom: 7
     });
 
     // normal map
@@ -30,17 +40,23 @@ export class MapComponent implements AfterViewInit {
     });
     tiles.addTo(this.map);
 
-    // Initialize heatmap layer
-    const heatmapLayer = (L as any).heatLayer([
-      [50.5, 30.5, 500], // lat, lng, intensity
-      [50.6, 30.4, 500],
-    ], {radius: 25});
-    this.map.addLayer(heatmapLayer);
+
+    this.weatherdata.GetData(this.url_builder.buildUrl()).subscribe(data=> {
+      console.log(data);
+      this.data = data;
+
+      // Map the data to the format that heatLayer expects
+      const heatData = this.data.map(datum => [datum.LAT, datum.LONG, 50]);
+
+      // Create the heatmap layer
+      const heatmapLayer = (L as any).heatLayer(heatData, {radius: 150});
+
+      // Add the heatmap layer to the map
+      this.map?.addLayer(heatmapLayer);
+    });
 
 
   }
-
-  constructor() { }
 
   ngAfterViewInit(): void {
   }
