@@ -35,7 +35,7 @@ export class MapComponent implements AfterViewInit {
     // normal map
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      minZoom: 3,
+      minZoom: 6,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
     tiles.addTo(this.map);
@@ -49,7 +49,7 @@ export class MapComponent implements AfterViewInit {
       const heatData = this.data.map(datum => [datum.LAT, datum.LONG, 50]);
 
       // Create the heatmap layer
-      const heatmapLayer = (L as any).heatLayer(heatData, {radius: 150});
+      const heatmapLayer = (L as any).heatLayer(heatData, {radius: 100});
 
       // Add the heatmap layer to the map
       this.map?.addLayer(heatmapLayer);
