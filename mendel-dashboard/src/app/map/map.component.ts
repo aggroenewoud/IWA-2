@@ -1,6 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
-import 'leaflet.heat';
+import 'leaflet.idw/src/leaflet-idw';
+
 import {Observable} from "rxjs";
 import {WeatherdataService} from "../services/weatherdata.service";
 import {ApiUrlBuilderService} from "../services/api-url-builder.service";
@@ -36,7 +37,7 @@ export class MapComponent implements AfterViewInit {
     // normal map
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      minZoom: 6,
+      minZoom: 7,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     });
     tiles.addTo(this.map);
@@ -48,16 +49,19 @@ export class MapComponent implements AfterViewInit {
 
       // Map the data to the format that heatLayer expects
       const heatData = this.data.map(datum => [
-        datum.LAT, 
-        datum.LONG, 
-        this.getAverage(datum.DATA) * 10
+        datum.LAT,
+        datum.LONG,
+        //random balue between 0 and 50
+        Math.random() * 50
       ]);
 
-      // Create the heatmap layer
-      const heatmapLayer = (L as any).heatLayer(heatData, {radius: 100});
-
-      // Add the heatmap layer to the map
-      this.map?.addLayer(heatmapLayer);
+      var idw = (L as any).idwLayer(heatData,{
+        opacity: 0.3,
+        maxZoom: 18,
+        cellSize: 5,
+        exp: 3,
+        max: 50
+      }).addTo(this.map);
     });
 
 
