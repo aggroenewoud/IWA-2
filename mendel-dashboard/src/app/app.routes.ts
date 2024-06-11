@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { GetDataComponent } from './get-data/get-data.component';
+
+export const routes: Routes = [
+    { path: 'get-data', component: GetDataComponent}
+];
