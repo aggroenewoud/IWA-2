@@ -13,13 +13,18 @@ export class ApiUrlBuilderService {
   api_key = "api-key=" + environment.apiKey;
   values: string[] =[];
   count = "count=1";
+  minutes = "minutes=0";
 
   constructor() { }
 
   buildUrl() {
     var endpoint = [this.url, this.contract_id, this.station_name].join("/");
-    var parameters = "?" + [this.api_key, this.count, this.values.join("&")].join("&")
+    var parameters = "?" + [this.api_key, this.count, this.minutes, this.values.join("&")].join("&")
     return  endpoint + parameters
+  }
+
+  setMinutes(minutes:string) {
+    this.minutes = "minutes="+minutes;
   }
 
   setStation(station_name:string) {
