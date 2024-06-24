@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 
 import { GetDataComponent } from './get-data/get-data.component';
 import { MapShowComponent } from './map-show/map-show.component';
+import { DataDownloaderComponent } from './data-downloader/data-downloader.component';
 
 export const routes: Routes = [
   { path: 'get-data', component: GetDataComponent },
@@ -17,5 +18,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LayoutComponent, children: [
     { path: 'home', component: HomeComponent } ]
-  }
+  },
+  { path: 'download', component: DataDownloaderComponent },
+
 ];
