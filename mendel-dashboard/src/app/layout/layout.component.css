@@ -106,3 +106,8 @@ h1 {
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+
+.rotate{
+  background-color: transparent;
+  padding: 7vw;
+}
