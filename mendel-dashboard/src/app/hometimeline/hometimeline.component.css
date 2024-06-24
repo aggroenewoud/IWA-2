@@ -2,7 +2,7 @@
 /* The actual timeline (the vertical ruler) */
 .timeline {
     position: relative;
-    max-width: 1500px;
+    
     margin: 20px;
     padding: 50px 0;
     background-color: #fff;
@@ -89,7 +89,7 @@
   .content {
     padding: 20px 30px;
     background-color: #79BE15;
-    position: relative;
+    position: flex;
     border-radius: 6px;
   }
 

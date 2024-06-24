@@ -1,9 +1,9 @@
 .container {
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  position: absolute;
+  height: 50px;
   top: 0;
   left: 0;
 }
@@ -68,6 +68,8 @@ h1 {
   position: absolute;
 }
 
+
+
 /* Position each link diagonally */
 .dropdown-content a:nth-child(1) {
   top: 50px; /* Adjust this value to move the first item down */
@@ -92,6 +94,7 @@ h1 {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+
 }
 
 /* Change color of dropdown links on hover */
