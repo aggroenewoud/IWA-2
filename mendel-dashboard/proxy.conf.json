@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://freeapi.gerasim.in",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
