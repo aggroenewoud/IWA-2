@@ -15,6 +15,7 @@ export class ApiUrlBuilderService {
   count:any = null;
   startDate: any = null;
   endDate: any = null;
+  minutes = "minutes=0";
 
   constructor() { }
 
@@ -23,6 +24,10 @@ export class ApiUrlBuilderService {
     var parametersArray = [this.api_key, this.count, this.values.join("&"), this.startDate, this.endDate];
     var parameters = "?" + parametersArray.join("&")
     return  endpoint + parameters
+  }
+
+  setMinutes(minutes:string) {
+    this.minutes = "minutes="+minutes;
   }
 
   setStation(station_name:string) {
