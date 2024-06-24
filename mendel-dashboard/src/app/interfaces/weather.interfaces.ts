@@ -14,5 +14,7 @@ export interface WeatherData {
 
 export interface StationData {
     STN: number;
+    LONG: number;
+    LAT: number;
     DATA: WeatherData[];
 }
