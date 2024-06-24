@@ -1,9 +1,9 @@
-
+body {
+  width: 100%;
+}
 /* The actual timeline (the vertical ruler) */
 .timeline {
     position: relative;
-    
-    margin: 20px;
     padding: 50px 0;
     background-color: #fff;
   }
@@ -22,7 +22,6 @@
   
   /* Container around content */
   .container {
-    padding: 10px 40px;
     position: relative;
     background-color: inherit;
     width: 50%;
