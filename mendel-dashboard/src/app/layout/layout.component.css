@@ -1,4 +1,6 @@
-
+body{
+  margin-bottom: 1vh;
+}
 
 .container {
   display: block;
@@ -111,5 +113,6 @@ h1 {
 
 .rotate{
   background-color: transparent;
-  padding: 7vw;
+  padding: 20vw;
+  padding: 20vh;
 }
