@@ -3,19 +3,13 @@
     <table>
       <thead>
       <tr>
-        <th>StationID</th>
+        <th>Station ID</th>
         <th>Time</th>
-        <th>CLDC</th>
-        <th>DEWP</th>
-        <th>FRSHTT</th>
-        <th>PRCP</th>
-        <th>SLP</th>
-        <th>SNDP</th>
-        <th>STP</th>
-        <th>TEMP</th>
-        <th>VISIB</th>
-        <th>WDSP</th>
-        <th>WNDDIR</th>
+        <th>Cloud cover</th>
+        <th>Precipitation</th>
+        <th>Temperature</th>
+        <th>Wind speed</th>
+        <th>Wind direction</th>
       </tr>
       </thead>
       <tbody>
@@ -24,14 +18,8 @@
           <td>{{station.StationId}}</td>
           <td>{{hourData.date | date:'short'}}</td>
           <td>{{hourData.CLDC | number:'1.2-2'}}</td>
-          <td>{{hourData.DEWP | number:'1.2-2'}}</td>
-          <td>{{hourData.FRSHTT | number:'1.2-2'}}</td>
           <td>{{hourData.PRCP | number:'1.2-2'}}</td>
-          <td>{{hourData.SLP | number:'1.2-2'}}</td>
-          <td>{{hourData.SNDP | number:'1.2-2'}}</td>
-          <td>{{hourData.STP | number:'1.2-2'}}</td>
           <td>{{hourData.TEMP | number:'1.2-2'}}</td>
-          <td>{{hourData.VISIB | number:'1.2-2'}}</td>
           <td>{{hourData.WDSP | number:'1.2-2'}}</td>
           <td>{{hourData.WNDDIR | number:'1.2-2'}}</td>
         </tr>
