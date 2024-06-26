@@ -31,12 +31,12 @@ form div {
   text-align: left;
 }
 
-label {
+/* label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
   color: #ffffff;
-}
+} */
 
 input {
   width: 100%;
@@ -47,7 +47,7 @@ input {
   box-sizing: border-box;
 }
 
-button {
+/* button {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -56,7 +56,7 @@ button {
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
 button[disabled] {
   background-color: #cccccc;

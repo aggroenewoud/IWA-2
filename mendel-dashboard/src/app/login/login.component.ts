@@ -22,12 +22,15 @@ export class LoginComponent implements OnInit{
   constructor(private authService: AuthService, private router: Router, private renderer: Renderer2, private el: ElementRef) {}
 
   onLogin() {
-    if (this.authService.login(this.username, this.password)) {
-      alert("Login Success");
-      this.router.navigate(['/home']);
-    } else {
-      this.errorMessage = 'Invalid credentials';
-    }
+    this.authService.login(this.username, this.password).subscribe(isAuthenticated => {
+      console.log('isAuthenticated:', isAuthenticated); // Debugging
+      if (isAuthenticated) {
+        alert("Login Success");
+        this.router.navigate(['/home']);
+      } else {
+        this.errorMessage = 'Invalid credentials';
+      }
+    });
   }
 
   ngOnInit() {
