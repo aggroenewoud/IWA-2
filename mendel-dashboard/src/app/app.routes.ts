@@ -20,13 +20,18 @@ export const routes: Routes = [
   {path: 'get-data', component: GetDataComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {
-    path: '', component: LayoutComponent, children: [
-      {path: 'home', component: HomeComponent},
-      {path: 'aircirculation', component: AircirculationComponent},
-      {path: 'photosynthesis', component: PhotosynthesisComponent},
-      {path: 'usertable', component: UsertableComponent},
-      {path: 'users', component: UsersComponent},
-    ]
-  },
+  {path: 'home', component: HomeComponent},
+  {path: 'aircirculation', component: AircirculationComponent},
+  {path: 'photosynthesis', component: PhotosynthesisComponent},
+  {path: 'usertable', component: UsertableComponent},
+  {path: 'users', component: UsersComponent},
+  // {
+  //   path: '', component: LayoutComponent, children: [
+  //     {path: 'home', component: HomeComponent},
+  //     {path: 'aircirculation', component: AircirculationComponent},
+  //     {path: 'photosynthesis', component: PhotosynthesisComponent},
+  //     {path: 'usertable', component: UsertableComponent},
+  //     {path: 'users', component: UsersComponent},
+  //   ]
+  // },
 ];

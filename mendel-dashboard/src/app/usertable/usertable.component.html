@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="usertable.component.css">
 </head>
 <body>
+  <app-layout [icon]="svgIcon" [title]="'Admin Center'"></app-layout>
   <div class="container">
     <h1>User Information</h1>
     <table>
@@ -19,10 +20,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users"> <!-- Corrected typo here -->
-          <td>{{ user.id }}</td>
+        <tr *ngFor="let user of users">
           <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
           <td>{{ user.role }}</td>
         </tr>
       </tbody>

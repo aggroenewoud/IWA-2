@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
+import {SafeHtml} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-layout',
@@ -9,5 +10,6 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-
+  @Input() icon: SafeHtml = '';
+  @Input() title: string = '';
 }
