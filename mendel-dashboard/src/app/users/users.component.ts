@@ -16,7 +16,7 @@ export class UsersComponent {
     this.userForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-      role: ['']
+      role: ['user']
     });
   }
 
