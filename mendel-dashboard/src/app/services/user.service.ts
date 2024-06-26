@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from 'c:/Users/beheerder/OneDrive/Documenten/hanze_hogeschool_23-24/WAP_front-end/IWA-2/mendel-dashboard/src/app/interfaces/user.interface'; 
+import { User } from '../interfaces/user.interfaces';
 
 @Injectable({
   providedIn: 'root'
