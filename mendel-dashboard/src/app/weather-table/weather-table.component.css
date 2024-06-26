@@ -70,3 +70,28 @@ tbody tr:hover {
 .date-selectors button:hover {
   background-color: #039256;
 }
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #04a96d;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  border-radius: 15px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 1000;
+  font-family: Verdana;
+  cursor: pointer;
+}
+
+.floating-button:hover {
+  background-color: #039256;
+}
+
+a:hover {
+  cursor: pointer;
+}
