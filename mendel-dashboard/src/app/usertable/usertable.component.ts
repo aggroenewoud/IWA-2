@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service'; // Adjust the import path as necessary
+import { UserService } from '../services/user.service'; // Adjust the import path as necessary
 import { CommonModule } from '@angular/common';
 import { User } from '../interfaces/user.interface'; // Ensure the import path is correct
 

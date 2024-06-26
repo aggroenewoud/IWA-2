@@ -1,5 +1,6 @@
 body {
   width: 100%;
+  font-family: verdana;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -7,6 +8,7 @@ body {
     position: relative;
     padding: 50px 0;
     background-color: #fff;
+  font-family: Verdana;
   }
 
   /* The actual timeline (the vertical ruler) */
@@ -26,6 +28,7 @@ body {
     position: relative;
     background-color: inherit;
     width: 50%;
+    font-family: verdana;
   }
 
   /* The circles on the timeline */
@@ -91,6 +94,7 @@ body {
     background-color: #79BE15;
     position: flex;
     border-radius: 6px;
+    font-family: verdana;
   }
 
 
@@ -99,6 +103,7 @@ body {
     font-weight: bold;
     margin-top: 10px;
     margin-left: 20px ;
+    font-family: verdana;
 
 }
 
