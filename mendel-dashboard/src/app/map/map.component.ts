@@ -99,6 +99,9 @@ export class MapComponent implements OnInit {
   }
 
   updateHeatMaps(): void {
+    console.log(this.currentTime.toISOString());
+    console.log(new Date(this.currentTime.getTime() + 60 * 60 * 1000).toISOString())
+
     this.url_builder.setStartDate(this.currentTime.toISOString());
     this.url_builder.setEndDate(new Date(this.currentTime.getTime() + 60 * 60 * 1000).toISOString());
 

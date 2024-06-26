@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, HttpClientModule],
-  
+
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit{
     this.renderer.listen(form, 'submit', this.onLoginButtonClick.bind(this));
   }
 
-  
+
 
 
 
