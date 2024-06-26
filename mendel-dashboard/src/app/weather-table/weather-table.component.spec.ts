@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataDownloaderComponent } from './data-downloader.component';
+import { WeatherTableComponent } from './weather-table.component';
 
-describe('DataDownloaderComponent', () => {
-  let component: DataDownloaderComponent;
-  let fixture: ComponentFixture<DataDownloaderComponent>;
+describe('WeatherTableComponent', () => {
+  let component: WeatherTableComponent;
+  let fixture: ComponentFixture<WeatherTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataDownloaderComponent]
+      imports: [WeatherTableComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DataDownloaderComponent);
+    fixture = TestBed.createComponent(WeatherTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -47,19 +47,22 @@ export class WeatherDataService {
           WNDDIR: this.average(station.DATA, 'WNDDIR'),
         };
 
-        let stationIndex = stations.findIndex(s => s.StationId === station.STN);
+        // Check if hourData has any NaN values
+        if (!Object.values(hourData).some(value => isNaN(value))) {
+          let stationIndex = stations.findIndex(s => s.StationId === station.STN);
 
-        if (stationIndex !== -1) {
-          // If the station exists, add the hourData to its hourlyData array
-          stations[stationIndex].hourlyData.push(hourData);
-        } else {
-          // If the station does not exist, add a new station to the stations array
-          stations.push({
-            StationId: station.STN,
-            Latitude: station.LAT,
-            Longitude: station.LONG,
-            hourlyData: [hourData],
-          });
+          if (stationIndex !== -1) {
+            // If the station exists, add the hourData to its hourlyData array
+            stations[stationIndex].hourlyData.push(hourData);
+          } else {
+            // If the station does not exist, add a new station to the stations array
+            stations.push({
+              StationId: station.STN,
+              Latitude: station.LAT,
+              Longitude: station.LONG,
+              hourlyData: [hourData],
+            });
+          }
         }
       });
     });

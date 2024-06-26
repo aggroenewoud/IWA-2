@@ -8,7 +8,6 @@ import {LayoutComponent} from './layout/layout.component';
 
 import {GetDataComponent} from './get-data/get-data.component';
 import {MapShowComponent} from './map-show/map-show.component';
-import {DataDownloaderComponent} from './data-downloader/data-downloader.component';
 
 import {AircirculationComponent} from './aircirculation/aircirculation.component';
 import {PhotosynthesisComponent} from './photosynthesis/photosynthesis.component';
@@ -30,5 +29,4 @@ export const routes: Routes = [
       {path: 'users', component: UsersComponent},
     ]
   },
-  {path: 'download', component: DataDownloaderComponent},
 ];

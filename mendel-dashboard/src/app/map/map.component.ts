@@ -99,16 +99,10 @@ export class MapComponent implements OnInit {
   }
 
   updateHeatMaps(): void {
-    console.log(this.currentTime.toISOString());
-    console.log(new Date(this.currentTime.getTime() + 60 * 60 * 1000).toISOString())
-
     this.url_builder.setStartDate(this.currentTime.toISOString());
     this.url_builder.setEndDate(new Date(this.currentTime.getTime() + 60 * 60 * 1000).toISOString());
 
-    console.log(this.currentTime.toISOString());
-    console.log(new Date(this.currentTime.getTime() + 60 * 60 * 1000).toISOString());
     this.weatherdata.GetData(this.url_builder.buildUrl()).subscribe(data => {
-      console.log(data);
       this.data = data;
 
       // Map the data to the format that heatLayer expects
