@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsComponent } from '../news/news.component';
 import {HometimelineComponent} from '../hometimeline/hometimeline.component';
-import { NewsInterface } from '../news-interface';
-import { NewsService } from '../news.service';
+import { NewsInterface } from '../services/news-interface';
+import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-home',

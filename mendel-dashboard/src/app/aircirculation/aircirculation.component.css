@@ -47,3 +47,8 @@ tbody td {
 tbody tr:hover {
   background-color: #f1f1f1;
 }
+
+show-map {
+  display: flex;
+  justify-content: center;
+}
