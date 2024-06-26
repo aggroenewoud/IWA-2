@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-usertable',
   standalone: true,
-  imports: [],
+  imports: [CommonModule], // Include CommonModule in the imports
   templateUrl: './usertable.component.html',
-  styleUrl: './usertable.component.css'
+  styleUrls: ['./usertable.component.css']
 })
-export class UsertableComponent {
+export class UsertableComponent implements OnInit {
+  users: any = {};
 
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.userService.getAllUsers().subscribe((data) => {
+      this.users = data;
+    });
+  }
 }
