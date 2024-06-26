@@ -33,7 +33,7 @@ export class WeatherDataService {
     ).subscribe(({data, hour, nextHour}) => {
       data.forEach((station: any) => {
         const hourData: HourlyData = {
-          date: nextHour,
+          date: hour,
           CLDC: this.average(station.DATA, 'CLDC'),
           DEWP: this.average(station.DATA, 'DEWP'),
           FRSHTT: this.average(station.DATA, 'FRSHTT'),
