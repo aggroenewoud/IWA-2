@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private loggedIn = false;
-  private hardcodedUser = {
-    username: 'testUser',
-    password: 'testPassword'
-  };
+export class UserLoginService {
 
-  constructor() { }
+  private apiUrl = 'http://127.0.0.1:5000/users'; // Update to your Flask API URL
 
-  login(username: string, password: string): boolean {
-    if (username === this.hardcodedUser.username && password === this.hardcodedUser.password) {
-      this.loggedIn = true;
-      return true;
-    }
-    return false;
-  }
+  constructor(private http: HttpClient) { }
 
-  isLoggedIn(): boolean {
-    return this.loggedIn;
-  }
-
-  logout(): void {
-    this.loggedIn = false;
+  login(username: string, password: string): Observable<boolean> {
+    const loginData = { username, password };
+    return this.http.post<{ message: string }>(`${this.apiUrl}/login`, loginData).pipe(
+      map(response => response.message === 'Login success'),
+      catchError(error => {
+        console.error('Login error:', error);
+        return [false];
+      })
+    );
   }
 }
