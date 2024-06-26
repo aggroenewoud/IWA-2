@@ -1,11 +1,11 @@
 export interface User {
     id: number;
-    name: string;
-    email: string;
+    username: string;
+    password: string; // Note: Storing passwords in the frontend is not recommended for real applications
     role: string;
     
 }
 
-export interface Users{
-    users: User[];
-}
+// export interface Users{
+//     users: User[];
+// }
