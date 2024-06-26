@@ -1,6 +1,7 @@
 <div class="container">
-    <h1>Add User</h1>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">`
+        <h1>Add User</h1>
       <div>
         <label for="username">Username:</label>
         <input id="username" formControlName="username" required>
