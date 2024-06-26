@@ -2,10 +2,11 @@ body, html {
   height: 100%;
   margin: 0;
   background-color: #f0f0f0;
+  position: relative;
 }
 
 .container {
-  /* background-color: #04a96d;
+  background-color: #04a96d;
   padding: 20px 40px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -13,22 +14,10 @@ body, html {
   width: 300px;
   box-sizing: border-box;
   position: absolute;
-
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  font-family: verdana; */
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.container form {
-  width: 300px;
-  padding: 20px 20px 20px 20px;;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 #000;
+  font-family: verdana;
 }
 
 h1 {
