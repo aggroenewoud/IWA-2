@@ -34,7 +34,6 @@ export class WeatherTableComponent {
     this.endDateString = this.endDate.toISOString().split('T')[0];
 
     this.weatherData = this.weatherDataService.getWeatherData(this.startDate, this.endDate);
-    console.log(this.weatherData);
   }
 
   updateWeatherData() {
