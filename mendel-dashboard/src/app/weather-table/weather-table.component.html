@@ -1,4 +1,14 @@
 <div>
+  <div class="date-selectors">
+    <label for="start-date">Start Date:</label>
+    <input type="date" id="start-date" [(ngModel)]="startDateString" (ngModelChange)="setStartDate($event)">
+
+    <label for="end-date">End Date:</label>
+    <input type="date" id="end-date" [(ngModel)]="endDateString" (ngModelChange)="setEndDate($event)">
+
+    <button (click)="updateWeatherData()">Update</button>
+  </div>
+
   <div class="container1">
     <table>
       <thead>
