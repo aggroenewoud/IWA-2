@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UserService } from '../user.service';
+import { UserService } from '../user.service'; // Adjust the import path as necessary
+// Adjust the import path as necessary
 
 @Component({
   selector: 'app-usertable',
-  standalone: true,
-  imports: [CommonModule], // Include CommonModule in the imports
   templateUrl: './usertable.component.html',
   styleUrls: ['./usertable.component.css']
 })
 export class UsertableComponent implements OnInit {
-  users: any = {};
+  users = []; // Initialize users as an empty array
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.userService.getAllUsers().subscribe((data) => {
-      this.users = data;
+  ngOnInit() {
+    this.userService.getAllUsers().subscribe({
+      next: (data) => {
+        this.users = data; // Ensure data is an array
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('User data fetch complete')
     });
   }
 }
