@@ -12,6 +12,7 @@ import { MapShowComponent } from './map-show/map-show.component';
 import { AircirculationComponent } from './aircirculation/aircirculation.component';
 import { PhotosynthesisComponent } from './photosynthesis/photosynthesis.component';
 import { UsersComponent} from "./users/users.component";
+import {UsertableComponent} from "./usertable/usertable.component";
 
 export const routes: Routes = [
   { path: 'get-data', component: GetDataComponent },
@@ -19,9 +20,11 @@ export const routes: Routes = [
   { path: 'get-data', component: GetDataComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+
   { path: '', component: LayoutComponent, children: [
     { path: 'home', component: HomeComponent },
     { path: 'aircirculation', component: AircirculationComponent },
     { path: 'photosynthesis', component: PhotosynthesisComponent},
+    { path: 'usertable', component: UsertableComponent },
     { path: 'users', component: UsersComponent}]
   }];
