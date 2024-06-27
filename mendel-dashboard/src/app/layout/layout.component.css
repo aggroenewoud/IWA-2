@@ -27,6 +27,7 @@ h1 {
   display: inline-block;
   margin-left: 20px;
   margin-top: 10px;
+  z-index: 1000;
 }
 
 /* Dropdown Button */
